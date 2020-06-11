@@ -834,6 +834,23 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF83351550": {
+    "contest_id": 1255,
+    "language": "GNU C++17",
+    "path": "codeforces/1255/C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "League of Leesins",
+    "problem_url": "https://codeforces.com/contest/1255/problem/C",
+    "submission_id": "CF83351550",
+    "submission_url": "https://codeforces.com/contest/1255/submission/83351550",
+    "tags": [
+      "constructive algorithms",
+      "implementation",
+      "*1600"
+    ],
+    "timestamp": "Jun/11/2020 01:46"
+  },
   "CF83463962": {
     "contest_id": 1366,
     "language": "GNU C++17",
