@@ -834,6 +834,23 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF84702224": {
+    "contest_id": 1217,
+    "language": "GNU C++17",
+    "path": "codeforces/1217/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Zmei Gorynich",
+    "problem_url": "https://codeforces.com/contest/1217/problem/B",
+    "submission_id": "CF84702224",
+    "submission_url": "https://codeforces.com/contest/1217/submission/84702224",
+    "tags": [
+      "greedy",
+      "math",
+      "*1600"
+    ],
+    "timestamp": "Jun/22/2020 19:10"
+  },
   "CF84703174": {
     "contest_id": 1203,
     "language": "GNU C++17",
