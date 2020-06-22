@@ -834,6 +834,23 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF84703174": {
+    "contest_id": 1203,
+    "language": "GNU C++17",
+    "path": "codeforces/1203/D1.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D1",
+    "problem_name": "Remove the Substring (easy version)",
+    "problem_url": "https://codeforces.com/contest/1203/problem/D1",
+    "submission_id": "CF84703174",
+    "submission_url": "https://codeforces.com/contest/1203/submission/84703174",
+    "tags": [
+      "greedy",
+      "implementation",
+      "*1600"
+    ],
+    "timestamp": "Jun/22/2020 19:57"
+  },
   "CF84709682": {
     "contest_id": 1328,
     "language": "GNU C++17",
