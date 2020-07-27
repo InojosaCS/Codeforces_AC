@@ -834,6 +834,22 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF88161676": {
+    "contest_id": 1288,
+    "language": "GNU C++17",
+    "path": "codeforces/1288/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Yet Another Meme Problem",
+    "problem_url": "https://codeforces.com/contest/1288/problem/B",
+    "submission_id": "CF88161676",
+    "submission_url": "https://codeforces.com/contest/1288/submission/88161676",
+    "tags": [
+      "math",
+      "*1100"
+    ],
+    "timestamp": "Jul/27/2020 19:04"
+  },
   "CF88162245": {
     "contest_id": 1288,
     "language": "GNU C++17",
