@@ -16,7 +16,8 @@ int32_t main(){
 	while(n--){
 		ll a,b;
 		cin >> a >> b;
-		if(2*a>=b && b*2>=a && (a+b)%3==0) cout << "YES\n";
+		ll x = max(a,b), y = min(a,b);
+		if(x<=2ll*y && (a+b)%3==0) cout << "YES\n";
 		else cout << "NO\n";
 	}
 	return 0;
