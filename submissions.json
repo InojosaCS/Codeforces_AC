@@ -834,6 +834,25 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF89059222": {
+    "contest_id": 1399,
+    "language": "GNU C++17",
+    "path": "codeforces/1399/E1.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E1",
+    "problem_name": "Weights Division (easy version)",
+    "problem_url": "https://codeforces.com/contest/1399/problem/E1",
+    "submission_id": "CF89059222",
+    "submission_url": "https://codeforces.com/contest/1399/submission/89059222",
+    "tags": [
+      "data structures",
+      "dfs and similar",
+      "greedy",
+      "trees",
+      "*2000"
+    ],
+    "timestamp": "Aug/05/2020 13:39"
+  },
   "CF89076870": {
     "contest_id": 448,
     "language": "GNU C++17",
