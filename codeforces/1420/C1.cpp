@@ -2,45 +2,51 @@
  
 using namespace std;
 
-bool is(int a, int b, int c){
-	return a < b && b < c;
-}
-
-bool peak(int a, int b, int c){
-	return a < b && b > c;
-}
-
 void solve(){
-	int n,q;
+	int n, q;
 	cin >> n >> q;
 	vector<int64_t> a(n);
 	
-
 	for (int i = 0; i < n; i++)
 		cin >> a[i];
-
+	
 	if(n == 1){
 		cout << a[0] << "\n";
 		return;
 	}
 	
-	int64_t ans = 0;
+	bool up = true;
+	vector<int64_t> ans;
 	
-	for (int i = 0; i < n; i++)
-	{	
-		if(i == 0 && a[i]>a[i+1]){
-			ans += a[i];
-		} else if(i == n-1 && a[i] > a[i-1]) {
-			ans += a[i];
-		} else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])){
-			ans += a[i];
-		} else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])){
-			ans -= a[i];
-		}
-		//cout << ans << "\n";
+	if(a[0] > a[1]){
+		ans.emplace_back(a[0]);
+		up = false;
 	}
-	cout << ans << "\n";
 	
+	for (int i = 1; i + 1 < n; i++)
+	{
+		if(up && a[i-1] < a[i] && a[i] > a[i+1]){
+			ans.emplace_back(a[i]);
+			up = false;
+		}
+		else if(!up && a[i-1] > a[i] && a[i] < a[i+1]){
+			ans.emplace_back(-a[i]);
+			up = true;
+		}
+	}
+	
+	if(up && a[n-1] > a[n-2]){
+		ans.emplace_back(a[n-1]);
+	}
+	
+	int64_t res = -1, sum = 0;
+	
+	for (int i = 0; i < (int) ans.size(); i++){
+		sum += ans[i];
+		res = max(sum, res);
+	}
+	
+	cout << res << "\n";
 }
 
 int main(){
@@ -49,7 +55,7 @@ int main(){
 	int t = 1;
 	cin >> t;
 
-	while(t-->0) solve();
+	while(t--) solve();
 	
 	return 0;
 }
