@@ -22,20 +22,29 @@ void solve(){
 	
 	for (int i = 0; i < n && n!=1; i++)
 	{	
-		if(i == 0 && a[i]>a[i+1]) ans += a[i];
-		else if(i == n-1 && a[i] > a[i-1]) ans += a[i];
-		else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])) ans += a[i];
-		else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])) ans -= a[i];
+		if(i == 0 && a[i]>a[i+1]){
+			ans += a[i];
+		} else if(i == n-1 && a[i] > a[i-1]) {
+			ans += a[i];
+		} else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])){
+			ans += a[i];
+		} else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])){
+			ans -= a[i];
+		}
+		//cout << ans << "\n";
 	}
 	
+	bool deb = false;
+	if(deb)cout << "case\n";
 	if(n == 1) cout << a[0] << "\n";
 	else cout << ans << "\n";
-	int l,r;
+	int l,r,x,y;
 
 	
 	for (int qq = 0; qq < q; qq++)
 	{
-		cin >> l >> r;
+		cin >> x >> y;
+		l = min(x, y); r = max(x, y);
 		--l; --r;
 		map<int, bool> vis;
 		
@@ -45,6 +54,7 @@ void solve(){
 			else if(i == n-1 && a[i] > a[i-1]) ans -= a[i];
 			else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])) ans -= a[i];
 			else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])) ans += a[i];
+			if(deb) cout << i << ": " << ans << "\n";
 		}
 		for(int i = r-1; i <= r+1; i++){
 			if(vis[i]){
@@ -55,6 +65,7 @@ void solve(){
 			else if(i == n-1 && a[i] > a[i-1]) ans -= a[i];
 			else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])) ans -= a[i];
 			else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])) ans += a[i];
+			if(deb)cout << i << ": " << ans << "\n";
 		}
 		
 		swap(a[l], a[r]);
@@ -65,8 +76,8 @@ void solve(){
 			else if(i == n-1 && a[i] > a[i-1]) ans += a[i];
 			else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])) ans += a[i];
 			else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])) ans -= a[i];
+			if(deb)cout << i << ": " << ans << "\n";
 		}
-		
 		for(int i = r-1; i <= r+1; i++){
 			if(vis[i]){
 				vis[i] = 0;
@@ -76,6 +87,7 @@ void solve(){
 			else if(i == n-1 && a[i] > a[i-1]) ans += a[i];
 			else if (is(0, i, n-1) && peak(a[i-1], a[i], a[i+1])) ans += a[i];
 			else if (is(0, i, n-1) && peak(-a[i-1], -a[i], -a[i+1])) ans -= a[i];
+			if(deb)cout << i << ": " << ans << "\n";
 		}
 		
 		if(n == 1) cout << a[0] << "\n";
