@@ -834,6 +834,25 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF94815197": {
+    "contest_id": 1426,
+    "language": "GNU C++17",
+    "path": "codeforces/1426/D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Non-zero Segments",
+    "problem_url": "https://codeforces.com/contest/1426/problem/D",
+    "submission_id": "CF94815197",
+    "submission_url": "https://codeforces.com/contest/1426/submission/94815197",
+    "tags": [
+      "constructive algorithms",
+      "data structures",
+      "greedy",
+      "sortings",
+      "*1500"
+    ],
+    "timestamp": "Oct/05/2020 22:42"
+  },
   "CF94816807": {
     "contest_id": 1419,
     "language": "GNU C++17",
