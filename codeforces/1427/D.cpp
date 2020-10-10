@@ -2,8 +2,6 @@
  
 using namespace std;
 
-// Easy idea, longgg looong implementation
-
 void solve(){
 	int n;
 	cin >> n;
@@ -15,6 +13,7 @@ void solve(){
 	vector<int> copy = a;
 	sort(copy.begin(), copy.end());
 	vector<vector<int64_t>> op(n);
+	int cnt = 0;
 	
 	for (int step = 1; step < n; step++)
 	{
@@ -35,8 +34,11 @@ void solve(){
 		vector<int> y;
 		vector<int> z;
 		
+		//cout << "\nstep: " << step << "\n" << p1 << " " << pp << " " << pc << " *** ";
+		
 		// ...n+1....(n n-1 n-2..2 1)....
 		if(pc < pp && pp <= p1) {
+			//cout << "1\n";
 			
 			op[step].push_back(pc);
 			op[step].push_back(pp-1-pc+1);
@@ -58,6 +60,7 @@ void solve(){
 		
 		// .....(1 2 3...n).....n+1....
 		else if(pc > pp && pp >= p1){
+			//cout << "2\n";
 			
 			for (int i = 0; i <= pp; i++){
 				x.push_back(a[i]);
@@ -73,11 +76,14 @@ void solve(){
 				z.push_back(a[i]);
 				
 			op[step].push_back(pc-(pp+1)+1);
-			op[step].push_back(n-1-(pc+1)+1);
+			if(n-1-(pc+1)+1) op[step].push_back(n-1-(pc+1)+1);
+			//cout << step << ": AAAwhoOooPS " << pc-(pp+1)+1 << "\n";
+			//if(n-1-(pc+1)+1) cout << "whoOooPS " << n-1-(pc+1)+1 << " " << n-1 << " " << pc+1 << "\n";
 		}
 		
 		// ....4 3 2 1 .... 5 ...
 		else if(p1 >= pp && pc > p1) {
+			//cout << "3\n";
 			
 			for (int i = 0; i < pp; i++)
 				w.push_back(a[i]);
@@ -99,6 +105,7 @@ void solve(){
 		
 		// .....5....1 2 3 4 ...
 		else if(p1 <= pp && pc < p1) {
+			//cout << "4\n";
 			
 			for (int i = 0; i <= pc; i++){
 				x.push_back(a[i]);
@@ -122,6 +129,10 @@ void solve(){
 		for(int f: y) a[ind++] = f;
 		for(int f: x) a[ind++] = f;
 		for(int f: w) a[ind++] = f;
+		
+		cnt++;
+		//for (int i = 0; i < n; i++)
+			//cout << a[i] << (i==n-1?"\n":" ");
 	}
 	
 	vector<int> p = a;
