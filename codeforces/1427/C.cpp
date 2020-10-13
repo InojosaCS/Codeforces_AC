@@ -26,7 +26,6 @@ void solve(){
 				current = max(dp[j], current);
 			}
 		}
-		
 		dp[i] = current + 1;
 		if(i >= 1123) dp[i] = max(dp[i], mx[i-1123] + 1);
 		mx[i] = max(dp[i], mx[i-1]);
