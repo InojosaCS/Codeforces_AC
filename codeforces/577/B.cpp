@@ -18,11 +18,6 @@ void solve() {
         a[i] = a[i] % m;
     }
     
-    if(n > m) {
-        cout << "YES\n";
-        return;
-    }
-    
     sort(a.begin(), a.end());
     vector<int> visited(5000, 0);
     visited[0] = 1;
@@ -46,7 +41,9 @@ void solve() {
         }
     }
     
-    cout << "NO\n";
+    if(visited[0] > 1) cout << "YES\n";
+    else cout << "NO\n";
+    
 }
 
 int32_t main() {
