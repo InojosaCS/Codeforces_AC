@@ -834,6 +834,21 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF97504804": {
+    "contest_id": 1089,
+    "language": "GNU C++17",
+    "path": "codeforces/1089/L.cpp",
+    "platform": "Codeforces",
+    "problem_index": "L",
+    "problem_name": "Lazyland",
+    "problem_url": "https://codeforces.com/contest/1089/problem/L",
+    "submission_id": "CF97504804",
+    "submission_url": "https://codeforces.com/contest/1089/submission/97504804",
+    "tags": [
+      "*900"
+    ],
+    "timestamp": "Nov/02/2020 15:05"
+  },
   "CF97506581": {
     "contest_id": 1089,
     "language": "GNU C++17",
