@@ -1,23 +1,62 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <math.h>
+#include <string>
+#include <cstring>
+#include <set>
+#include <map>
+#include <unordered_map>
 
 using namespace std;
 
-#define int int64_t
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<int, pair<int, int>> piii;
+typedef vector<int> vi;
+typedef vector<pii> vii;
 
-int gcd(int a, int b, int& x, int& y) {
+#define ri(a) scanf("%d", &a)
+#define rii(a,b) scanf("%d %d", &a, &b)
+#define riii(a,b,c) scanf("%d %d %d", &a, &b, &c)
+#define rl(a) scanf("%lld", &a)
+#define rll(a,b) scanf("%lld %lld", &a, &b)
+#define FOR(i,n,m) for(int i=n; i<m; i++)
+#define ROF(i,n,m) for(int i=n; i>m; i--)
+#define pb push_back
+#define lb lower_bound
+#define ub upper_bound
+#define F first
+#define S second
+#define all(s) s.begin(),s.end()
+
+const int INF = 0x3f3f3f3f;
+const ll LLINF = 1e18;
+const int MAXN = 1e5; // CAMBIAR ESTE
+
+// GJNM
+ll n;
+vector<ll> divs;
+
+ll gcd(ll a, ll b, ll& x, ll& y) {
     if (b == 0) {
         x = 1;
         y = 0;
         return a;
     }
-    int x1, y1;
-    int d = gcd(b, a % b, x1, y1);
+    ll x1, y1;
+    ll d = gcd(b, a % b, x1, y1);
     x = y1;
     y = x1 - y1 * (a / b);
     return d;
 }
 
-bool find_any_solution(int a, int b, int c, int &x0, int &y0, int &g) {
+// esto da un x0 y y0 tal que a * x0 + b * y0 = c
+// no maneja el caso b == 0 y a == 0
+// para conseguir otras soluciones x0 += k*(b/g) y y0 -= k*(a/g)
+bool find_any_solution(ll a, ll b, ll c, ll &x0, ll &y0, ll &g) {
     g = gcd(abs(a), abs(b), x0, y0);
     if (c % g) {
         return false;
@@ -30,104 +69,62 @@ bool find_any_solution(int a, int b, int c, int &x0, int &y0, int &g) {
     return true;
 }
 
-void shift_solution(int & x, int & y, int a, int b, int cnt) {
-    x += cnt * b;
-    y -= cnt * a;
+
+void tryy(ll d) {
+    ll a = d;
+    ll b = n / d;
+    ll x, y, g;
+    if (!find_any_solution(a, b, n - 1, x, y, g))
+        return;
+
+    if (y < 0) {
+        ll dist = (abs(y)) / (a / g);
+        x -= dist * (b / g);
+        y += dist * (a / g);
+        if (y < 0) {
+            x -= b / g;
+            y += a / g;
+        }
+    }
+
+    if (y < 0 || x < 0)
+        return;
+
+    swap(a, b);
+    ll need_a = (x + a - 2) / (a - 1);
+    ll need_b = (y + b - 2) / (b - 1);
+    if (need_a + need_b > 100000)
+        return;
+
+
+    printf("YES\n");
+    printf("%lld\n", need_a + need_b);
+    FOR(i, 0, need_a) {
+        ll out = min(x, a - 1);
+        x -= out;
+        printf("%lld %lld\n", out, a);
+    }
+    FOR(i, 0, need_b) {
+        ll out = min(y, b - 1);
+        y -= out;
+        printf("%lld %lld\n", out, b);
+    }
+
+    exit(0);
 }
 
-
-void solve(){
-	for(int tc = 0; tc < 1; tc++){
-		int64_t n, old;
-		cin >> n;
-		//n = tc;
-		old = n;
-		vector<int64_t> divs;
-		
-		for (int i = 2; i*i <= n; i++)
-		{
-			if(n % i  == 0) divs.push_back(i);
-			while(n % i  == 0) n /= i;
-		}
-		
-		if(n > 1) divs.push_back(n);
-		
-		
-		if((int) divs.size() <= 1){
-			cout << "NO\n";
-			continue;
-		}
-		
-		n = old;
-		int64_t a = divs[0], b = divs[1], c = divs[0]*divs[1];
-		int x, y, minx = 0, miny = 0, g;
-		find_any_solution(a, b, c-1, x, y, g);
-		
-		
-		int sign_a = a > 0 ? +1 : -1;
-		int sign_b = b > 0 ? +1 : -1;
-	
-		shift_solution(x, y, a, b, (minx - x) / b);
-		if (x < minx)
-			shift_solution(x, y, a, b, sign_b);
-	
-		shift_solution(x, y, a, b, -(miny - y) / a);
-		if (y < miny)
-			shift_solution(x, y, a, b, -sign_a);
-		
-		vector<pair<int,int>> ans;
-		
-		while(x > 0){
-            int num = min(b * (n/c) - 1, x);
-            int d = b * (n/c);
-        	ans.push_back({num, d});
-            x -= num;
+int main() {
+    rl(n);
+    for (ll i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            divs.pb(i);
+            divs.pb(n / i);
         }
-        
-		while(y > 0){
-            int num = min(a * (n/c) - 1, y);
-            int d = a * (n/c);
-        	ans.push_back({num, d});
-            y -= num;
-        }
-        
-		int h = __gcd(n, n-c);
-		if(n > c) ans.push_back({(n-c) / h, n / h});
-		
-		int64_t sum = 0;
-		int64_t den = 1;
-		
-		for(auto p: ans){
-			sum += (n/p.second) * p.first;
-			den = den * p.second / __gcd(p.second, den);
-		}
-	
-		assert(a != b);
-		assert(x >= 0);
-		assert(y >= 0);
-		assert(sum == n-1);
-		assert(den == n);
-	
-		cout << "YES\n";
-		cout << (int) ans.size() << "\n";
-		
-		for(auto p: ans){
-			cout << p.first << " " << p.second << "\n";
-			//sum += (n/p.second) * p.first;
-			//den = den * p.second / __gcd(p.second, den);
-		}
+    }
 
-	}
+    for (auto d : divs)
+        tryy(d);
+
+    printf("NO\n");
+    return 0;
 }
-
-int32_t main(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	
-	int32_t tt = 1;
-	//cin >> tt;
-
-	while(tt-->0) solve();
-	
-	return 0;
-}	
