@@ -834,6 +834,22 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF97515502": {
+    "contest_id": 1089,
+    "language": "GNU C++17",
+    "path": "codeforces/1089/F.cpp",
+    "platform": "Codeforces",
+    "problem_index": "F",
+    "problem_name": "Fractions",
+    "problem_url": "https://codeforces.com/contest/1089/problem/F",
+    "submission_id": "CF97515502",
+    "submission_url": "https://codeforces.com/contest/1089/submission/97515502",
+    "tags": [
+      "math",
+      "*1900"
+    ],
+    "timestamp": "Nov/02/2020 20:03"
+  },
   "CF97963535": {
     "contest_id": 544,
     "language": "GNU C++17",
