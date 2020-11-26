@@ -834,6 +834,23 @@
     ],
     "timestamp": "Jan/14/2021 18:35"
   },
+  "CF99649172": {
+    "contest_id": 1168,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces/1168/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Good Triple",
+    "problem_url": "https://codeforces.com/contest/1168/problem/B",
+    "submission_id": "CF99649172",
+    "submission_url": "https://codeforces.com/contest/1168/submission/99649172",
+    "tags": [
+      "brute force",
+      "two pointers",
+      "*1900"
+    ],
+    "timestamp": "Nov/26/2020 10:16"
+  },
   "CF99665279": {
     "contest_id": 1442,
     "language": "GNU C++17 (64)",
