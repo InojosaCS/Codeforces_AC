@@ -1,4 +1,23 @@
 {
+  "CF100154651": {
+    "contest_id": 484,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces/484/B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Maximum Value",
+    "problem_url": "https://codeforces.com/contest/484/problem/B",
+    "submission_id": "CF100154651",
+    "submission_url": "https://codeforces.com/contest/484/submission/100154651",
+    "tags": [
+      "binary search",
+      "math",
+      "sortings",
+      "two pointers",
+      "*2100"
+    ],
+    "timestamp": "Dec/01/2020 23:44"
+  },
   "CF100592827": {
     "contest_id": 1450,
     "language": "GNU C++17 (64)",
