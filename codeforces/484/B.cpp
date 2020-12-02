@@ -1,6 +1,6 @@
 #include <bits/stdc++.h> 
-//#pragma GCC optimize("Ofast,unroll-loops")
-//#pragma GCC target("avx,avx2,sse,sse2")
+#pragma GCC optimize("Ofast,unroll-loops")
+#pragma GCC target("avx,avx2,sse,sse2")
 
 using namespace std; 
 
