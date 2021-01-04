@@ -7,10 +7,10 @@ void solve(int test){
     int n;
     cin >> n;
     
-    // In bx I sort by greater X coordinate, and then by smaller Y coordinate
+    // In bx I sort by greater X coordinate, and the by smaller Y coordinate
     vector<tuple<int,int,int>> bx(n);
     
-    // In by I sort by greater Y coordinate, and then by smaller X coordinate
+    // In by I sort by greater Y coordinate, and the by smaller X coordinate
     set<tuple<int,int,int>> by;
 
     // input
@@ -31,8 +31,8 @@ void solve(int test){
     
     // Now I go from the upper right corner to the bottom left corner
     // looking for something under Xk, Yk, since I have deleted all 
-    // points to the right I must only look for those under Yk, thats why 
-    // Im using lower bound
+    // points to the right and all points above Xk, Yk, I will not be
+    // taking false positive
     for (int k = 0; k < n; k++)
     {
 	int x, y, i;
@@ -49,7 +49,7 @@ void solve(int test){
 	int a,b,c;
 	tie(a,b,c) = *by.lower_bound({-y+1, 0, -1});
 	ans[i] = c + 1;
-	// erasing the current point to avoid false positive
+	// erase the current point to avoid false positive
 	by.erase({-y,x,i});
     }
     
