@@ -2,62 +2,89 @@
  
 using namespace std;
 
+bool deb = false;
+
 void solve(int test){
-    // input
     int n;
     cin >> n;
     
-    // In bx I sort by greater X coordinate, and the by smaller Y coordinate
     vector<tuple<int,int,int>> bx(n);
-    
-    // In by I sort by greater Y coordinate, and the by smaller X coordinate
+    vector<tuple<int,int,int>> bx2(n);
     set<tuple<int,int,int>> by;
+    set<tuple<int,int,int>> by2;
 
-    // input
+    
     for (int i = 0; i < n; i++)
     {
 	int x, y;
 	cin >> x >> y;
 	if(x > y) swap(x, y);
 	bx[i] = {-x, y, i};
+	bx2[i] = {-y, x, i};
 	by.insert({-y, x, i});
+	by2.insert({-y, x, i});
     }
     
-    // Now we sort as described
+    
     sort(bx.begin(), bx.end());
+    sort(bx2.begin(), bx2.end());
 
-    // where I keep the answer
     vector<int> ans(n, -1);
     
-    // Now I go from the upper right corner to the bottom left corner
-    // looking for something under Xk, Yk, since I have deleted all 
-    // points to the right and all points above Xk, Yk, I will not be
-    // taking false positive
     for (int k = 0; k < n; k++)
     {
 	int x, y, i;
 	tie(x,y,i) = bx[k];
 	x = -x;
 	
-	// Checking if something exists
+	if(deb) cout << x << " " <<  y << " ***\n";
+	
 	if(by.lower_bound({-y+1, 0, -1}) == by.end()){
 	    by.erase({-y,x,i});
 	    continue;
 	}
 	
-	// Saving the answer
 	int a,b,c;
 	tie(a,b,c) = *by.lower_bound({-y+1, 0, -1});
+	
+	if(deb) cout << b << " " <<  a <<  " " << i << " ---\n";
+	
 	ans[i] = c + 1;
-	// erase the current point to avoid false positive
 	by.erase({-y,x,i});
     }
-    
-    // output
-    for (int i = 0; i < n; i++)
-	cout << ans[i] << " \n"[i==n-1];
 
-    return;
+    //by = by2;
+    //bx = bx2;
+    
+    //for (int k = 0; k < n; k++)
+    //{
+	//int x, y, i;
+	//tie(x,y,i) = bx[k];
+	//x = -x;
+	
+	//cout << x << " " <<  y << " ***\n";
+	
+	//if(by.lower_bound({-y+1, 0, -1}) == by.end()){
+	    //by.erase({-y,x,i});
+	    //continue;
+	//}
+	
+	//int a,b,c;
+	//tie(a,b,c) = *by.lower_bound({-y+1, 0, -1});
+	
+	//cout << b << " " <<  a <<  " " << i << " ---\n";
+	
+	//ans[i] = c + 1;
+	//by.erase({-y,x,i});
+    //}
+    
+    if(deb) cout << "TEST: ---------------------\n";
+    
+    for (int i = 0; i < n; i++)
+    {
+	cout << ans[i] << " \n"[i==n-1];
+    }
+    
 }
 
 int32_t main(){
