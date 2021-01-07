@@ -4,6 +4,7 @@ using namespace std;
 
 const int N = 1e6+7;
 vector<bool> p(N, 1);
+//vector<int> cnt(1e6+7, 0);
 vector<int> primes;
 
 void sieve(){
@@ -78,7 +79,7 @@ int32_t main(){
     cin.tie(0);
     
     sieve();
-    
+  
     int32_t testCases = 1;
     cin >> testCases;
     
