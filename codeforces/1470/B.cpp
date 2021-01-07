@@ -2,7 +2,7 @@
 
 using namespace std; 
 
-const int N = 1e6+7;
+const int N = 1e5+7;
 vector<bool> p(N, 1);
 //vector<int> cnt(1e6+7, 0);
 vector<int> primes;
